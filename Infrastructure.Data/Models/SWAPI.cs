@@ -2,7 +2,7 @@
 {
     public abstract class SWAPI
     {
-        public int count { get; set; }
-        public string next { get; set; }
+        public int Count { get; set; }
+        public string Next { get; set; }
     }
 }

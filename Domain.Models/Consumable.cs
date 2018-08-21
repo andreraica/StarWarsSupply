@@ -1,5 +1,7 @@
 ﻿using Domain.Models.Enum;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Domain.Models
 {

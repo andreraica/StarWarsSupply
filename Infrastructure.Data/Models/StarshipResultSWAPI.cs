@@ -4,6 +4,6 @@ namespace Infrastructure.Data.Models
 {
     public class StarshipResultSWAPI : SWAPI
     {
-        public IEnumerable<StarshipSWAPI> results { get; set; }
+        public IEnumerable<StarshipSWAPI> Results { get; set; }
     }
 }

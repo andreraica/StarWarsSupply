@@ -10,11 +10,11 @@ namespace Infrastructure.Data.Repositories
 {
     public class StarshipRepository : IStarshipRepository
     {
-        List<Starship> starships;
+        private List<Starship> _starships;
 
         public StarshipRepository()
         {
-            starships = new List<Starship>();
+            _starships = new List<Starship>();
         }
 
         public IEnumerable<Starship> GetAllStarships()
@@ -32,14 +32,14 @@ namespace Infrastructure.Data.Repositories
                     if (response.IsSuccessStatusCode)
                     {
                         starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
-                        MapToDomain(starshipSWAPI.results);
+                        MapToDomain(starshipSWAPI.Results);
                     }
                 }
-                urlSWAPI = starshipSWAPI.next;
+                urlSWAPI = starshipSWAPI.Next;
 
-            } while (starshipSWAPI != null && !string.IsNullOrEmpty(starshipSWAPI.next));
+            } while (starshipSWAPI != null && !string.IsNullOrEmpty(starshipSWAPI.Next));
 
-            return starships;
+            return _starships;
         }
 
         private void MapToDomain(IEnumerable<StarshipSWAPI> starshipsSWAPI)
@@ -49,7 +49,7 @@ namespace Infrastructure.Data.Repositories
                 int mGLT = 0;
                 int.TryParse(starshipSWAPI.MGLT, out mGLT);
 
-                starships.Add(new Starship(
+                _starships.Add(new Starship(
                     starshipSWAPI.Name, mGLT, new Consumable(starshipSWAPI.Consumables))
                     );
             }
