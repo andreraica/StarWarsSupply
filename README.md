@@ -31,11 +31,27 @@ Choose Menu Test/Run All Tests
 > consumableHours = Consumable per hour
 > distanceMGLT = Input distance in MGLT
 > MGLT = MGLT per Starship
+
 > Absolute value for: distanceMGLT / (consumableHours * MGLT)
 
 ### Data API
 
 > Every data have consumed using the free API: https://swapi.co
+
+### Basic Tech
+
+* User Input: Console Application
+* Project Tiers: Class Library
+* Project Test: xUnit
+
+**Tiers:**
+>Domain (Model,Services) 
+* Domain is a global tier used by all tiers providing the main entities and services
+
+>Infrastructure (Data)
+* This tier consumes the WebAPI. It has your own model to manipulate the JSON and response to Services 
+>Tests
+* This project implements all the mensurable tests in the scope
 
 ### Next Steps Todo
 
