@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Interfaces.Data.Repositories;
 using Domain.Interfaces.Services;
 using Domain.Models;
-using Infrastructure.Data.Repositories;
+using System.Collections.Generic;
 
 namespace Domain.Services
 {
     public class StarshipService : IStarshipService
     {
+        private readonly IStarshipRepository _starshipRepository;
+
+        public StarshipService(IStarshipRepository starshipRepository)
+        {
+            _starshipRepository = starshipRepository;
+        }
+
         public IEnumerable<Starship> GetStarships()
         {
-            var starshipRepository = new StarshipRepository();
-            return starshipRepository.GetAllStarships();
+            return _starshipRepository.GetAllStarships();
         }
     }
 }
