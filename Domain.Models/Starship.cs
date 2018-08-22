@@ -4,6 +4,8 @@ namespace Domain.Models
 {
     public class Starship
     {
+        private const int errorNumber = -1;
+
         public Starship(string name, int mGLT, Consumable consumable)
         {
             Name = name;
@@ -20,9 +22,9 @@ namespace Domain.Models
             int consumableHours = Consumable.GetHours();
 
             if (consumableHours * MGLT == 0)
-                return -1;
+                return errorNumber;
 
-            return consumableHours >= 0 ? Math.Abs(distanceMGLT / (consumableHours * MGLT)) : -1;
+            return consumableHours >= 0 ? Math.Abs(distanceMGLT / (consumableHours * MGLT)) : errorNumber;
         }
     }
 }

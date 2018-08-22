@@ -1,12 +1,13 @@
 ﻿using Domain.Models.Enum;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Domain.Models
 {
     public class Consumable
     {
+        private const Int16 hoursPerDay = 24, errorNumber = -1;
+
         public Consumable(string consumableAPI)
         {
             ConsumableBuilder(consumableAPI);
@@ -23,34 +24,25 @@ namespace Domain.Models
 
         public int GetHours()
         {
-            return (Period != EPeriod.Unknown) ? (Quantity * 24 * (int)Period) : -1;
+            return (Period != EPeriod.Unknown) ? (Quantity * hoursPerDay * (int)Period) : errorNumber;
         }
 
         private void ConsumableBuilder(string consumableAPI)
         {
-            var consumable = EPeriod.Unknown.ToString();
-            var consumableSplited = consumableAPI.Split(" ");
+            Period = EPeriod.Unknown;
+            Quantity = errorNumber;
 
-            if (consumableSplited.Length == 2)
-            {
-                Quantity = Convert.ToInt32(consumableSplited[0]);
-                consumable = consumableSplited[1].ToLower();
-            }
+            var consumableAPISplited = consumableAPI.Split(" ");
 
-            if (consumable.Contains("hour"))
-                Period = EPeriod.Hour;
-            else if (consumable.Contains("day"))
-                Period = EPeriod.Day;
-            else if (consumable.Contains("week"))
-                Period = EPeriod.Week;
-            else if (consumable.Contains("month"))
-                Period = EPeriod.Month;
-            else if (consumable.Contains("year"))
-                Period = EPeriod.Year;
-            else
+            if (consumableAPISplited.Length == 2)
             {
-                Period = EPeriod.Unknown;
-                Quantity = -1;
+                Quantity = Convert.ToInt32(consumableAPISplited[0]);
+                var consumable = consumableAPISplited[1].ToLower();
+
+                EPeriod? period = System.Enum.GetValues(typeof(EPeriod)).Cast<EPeriod>()
+                        .FirstOrDefault(x => consumable.ToLower().Contains(x.ToString().ToLower()));
+
+                Period = (period != null) ? (EPeriod)period : EPeriod.Unknown;
             }
         }
     }
