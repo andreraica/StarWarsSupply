@@ -60,10 +60,10 @@ Choose Menu Test/Run All Tests
 ### Next Steps Todo
 
  - Intercep exception & http_errors on HttpClient 
- - Add Dependency Injection to HttpClient 
- - Modify to Async Methods when consuming multiple SWAPI paged result
+ - Add Tests to HttpClient Interface
+ - Think about change to Async Methods when consuming multiple SWAPI paged result
  - Add API resources and middleware Swagger
- - Add More Tests remaining Tiers
+ - Add coverage tests remaining Tiers
 
 License
 ----

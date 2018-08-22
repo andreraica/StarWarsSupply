@@ -1,19 +1,21 @@
-﻿using Domain.Interfaces.Data.Repositories;
+﻿using Domain.Interfaces.Data.Helpers;
+using Domain.Interfaces.Data.Repositories;
 using Domain.Models;
 using Infrastructure.Data.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Net.Http;
 
 namespace Infrastructure.Data.Repositories
 {
     public class StarshipRepository : IStarshipRepository
     {
+        private readonly IHttpClient _httpClient;
         private List<Starship> _starships;
 
-        public StarshipRepository()
+        public StarshipRepository(IHttpClient httpClient)
         {
+            _httpClient = httpClient;
             _starships = new List<Starship>();
         }
 
@@ -24,17 +26,15 @@ namespace Infrastructure.Data.Repositories
 
             do
             {
-                using (var client = new HttpClient())
-                {
-                    var response = client.GetAsync(urlSWAPI).Result;
-                    var outputDataJson = response.Content.ReadAsStringAsync().Result;
+                var response = _httpClient.Get(urlSWAPI);
+                var outputDataJson = response.Content.ReadAsStringAsync().Result;
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
-                        MapToDomain(starshipSWAPI.Results);
-                    }
+                if (response.IsSuccessStatusCode)
+                {
+                    starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
+                    MapToDomain(starshipSWAPI.Results);
                 }
+
                 urlSWAPI = starshipSWAPI.Next;
 
             } while (starshipSWAPI != null && !string.IsNullOrEmpty(starshipSWAPI.Next));
