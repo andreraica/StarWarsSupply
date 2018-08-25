@@ -56,11 +56,11 @@ Choose Menu Test/Run All Tests
 
 >Tests
 * This project implements all the mensurable tests in the scope
+* Using Moq & Stubs to emulate injections and isolating the tests
 
 ### Next Steps Todo
 
- - Intercep exception & http_errors on HttpClient 
- - Add Tests to HttpClient Interface
+ - Intercept exceptions 
  - Think about change to Async Methods when consuming multiple SWAPI paged result
  - Add API resources and middleware Swagger
  - Add coverage tests remaining Tiers
