@@ -8,26 +8,43 @@ This simple console application calculate how many stops for resupply are requir
 * [.NET Core 2.1] - SDK/RunTime Microsoft .NET Core 2.1 [https://www.microsoft.com/net/download/dotnet-core/2.1]
 
 ### Run Steps
+#### >>> Visual Studio Solution
+1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
+2) Set the project Console/StarWarsSupplyConsole as StartUp Project
+3) Press play button (This action should restore the Nuget Packages)
+4) Input MGLT in console and wait (example 1000000)
 
+#### >>> Docker Hub Image
 ```sh
-Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
-Set the project Console/StarWarsSupplyConsole as StartUp Project
-Press play button (This action should restore the Nuget Packages)
-Input MGLT in console and wait
+docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator
 ```
+
+##### *How this image was built / published
+File dockerfile was created inside Console Application folder
+Inside the Console Application:
+
+**Building**
+```sh
+dotnet publish -c Release -o publish
+docker build -t andreraica/starwarssupplycalculator .
+````
+**Publishing**
+```sh
+docker login
+docker push andreraica/starwarssupplycalculator
+````
 
 ### Test Steps
-```sh
-Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
-Choose Menu Test/Run All Tests
-```
+
+1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
+2) Choose Menu Test/Run All Tests
 
 # About Project!
 
 ### Calculation
 
-> To calcule how many stops for resupply were required
-> This formula has applied: 
+To calcule how many stops for resupply were required this formula has applied: 
+
 > consumableHours = Consumable per hour
 > distanceMGLT = Input distance in MGLT
 > MGLT = MGLT per Starship

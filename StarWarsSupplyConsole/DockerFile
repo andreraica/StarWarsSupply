@@ -1,0 +1,6 @@
+FROM microsoft/dotnet:2.1-sdk
+
+COPY ./publish /publish
+WORKDIR /publish
+
+ENTRYPOINT ["dotnet", "StarWarsSupplyConsole.dll"]
