@@ -75,11 +75,20 @@ To calcule how many stops for resupply were required this formula has applied:
 * This project implements all the mensurable tests in the scope
 * Using Moq & Stubs to emulate injections and isolating the tests
 
+**Packages:**
+* Moq
+* xUnit
+* Newtonsoft.Json
+* SimpleInjector
+* Others .net Core Packages...
+
+
 ### Next Steps Todo
 
  - Intercept exceptions 
  - Think about change to Async Methods when consuming multiple SWAPI paged result
- - Add API resources and middleware Swagger
+ - Add middleware Swagger
+ - Adjust to read AppSettings.json
  - Add coverage tests remaining Tiers
 
 License
