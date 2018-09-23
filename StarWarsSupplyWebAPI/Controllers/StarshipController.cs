@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces.Services;
-using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using StarWarsSupplyWebAPI.ViewModel;
 using System.Collections.Generic;
 
 namespace StarWarsSupplyWebAPI.Conrollers
@@ -15,10 +15,15 @@ namespace StarWarsSupplyWebAPI.Conrollers
             _starshipService = starshipService;
         }
 
-        [HttpGet]
-        public IEnumerable<Starship> Get()
+        [HttpGet("{distanceMGLT}")]
+        public List<StarShipResupply> Get(long distanceMGLT)
         {
-            return _starshipService.GetStarships();
+            var starShipsResupply = new List<StarShipResupply>();
+
+            foreach (var starship in _starshipService.GetStarships())
+                starShipsResupply.Add(new StarShipResupply(starship.Name, starship.CalculateSupply(distanceMGLT)));
+
+            return starShipsResupply;
         }
     }
 }

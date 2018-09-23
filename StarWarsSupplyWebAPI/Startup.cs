@@ -28,6 +28,13 @@ namespace StarWarsSupplyWebAPI
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
+
             app.UseMvc();
         }
 
