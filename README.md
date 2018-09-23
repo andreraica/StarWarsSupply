@@ -1,13 +1,19 @@
 # StarWarsSupply
 
-This simple console application calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT).
+This is a simple application that calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT).
+
+**Both works independentily**
+*Console Application (Console/Prompt)
+*Web Application (WebApi + Angular)
 
 ### Requeriments
 
 * [Visual Studio] - Microsoft Visual Studio!
 * [.NET Core 2.1] - SDK/RunTime Microsoft .NET Core 2.1 [https://www.microsoft.com/net/download/dotnet-core/2.1]
+* (Optional) Docker Tools (Docker for Windows or Mac) - If you want to run the project with Docker :)
 
-### Run Steps
+### CONSOLE APPLICATION - Run Steps
+****
 #### >>> Visual Studio Solution
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Console/StarWarsSupplyConsole as StartUp Project
@@ -15,9 +21,12 @@ This simple console application calculate how many stops for resupply are requir
 4) Input MGLT in console and wait (example 1000000)
 
 #### >>> Docker Hub Image
+1) Make sure that your Docker is running
+2) Open your prompt and execute this code bellow:
 ```sh
 docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator
 ```
+3) Input MGLT in console and wait (example 1000000)
 
 ##### *How this image was built / published
 File dockerfile was created inside Console Application folder
@@ -34,13 +43,43 @@ docker login
 docker push andreraica/starwarssupplycalculator
 ````
 
+### WEB APPLICATION - Run Steps
+****
+**You Can decide if Step1 must run on IISExpress or Docker**
+#### >>> Visual Studio Solution 
+
+#### IIS Express - WebApi (Step1)
+1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
+2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
+3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
+4) Just Test your API running: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
+
+#### Docker Compose - WebApi (Step1)
+**Make sure that your Docker is running in your machine**
+1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
+2) Set the project 'docker-compose' as StartUp Project
+3) Press play button 'Docker Compose'
+4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
+
+
+#### >>> PowerShell (Use your favorite Prompt) - Angular Front (Step2)
+1) Go to the 'StarWarsSupply\WebApp' folder
+2) run command:
+```sh
+ng serve
+````
+3) Acess your WebApp - ex. http://localhost:4200
+3) Input MGLT in console and wait (example 1000000)
+4) Wait some seconds and you will see the return calculated list :)
+
+
 ### Test Steps
 
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Choose Menu Test/Run All Tests
 
 # About Project!
-
+****
 ### Calculation
 
 To calcule how many stops for resupply were required this formula has applied: 
@@ -85,12 +124,21 @@ To calcule how many stops for resupply were required this formula has applied:
 
 ### Next Steps Todo
 
+**General**
+
  - Intercept exceptions 
  - Think about change to Async Methods when consuming multiple SWAPI paged result
  - Add middleware Swagger
  - Adjust to read AppSettings.json
+ - Ajust Docker Compose to start Angular together WebApi (same container) 
  - Add coverage tests remaining Tiers
 
+**FrontEnd**
+
+ - Add Configuration File
+ - Add Mask validator
+ - Add Load and improve layour
+ 
 License
 ----
 
