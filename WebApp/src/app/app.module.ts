@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

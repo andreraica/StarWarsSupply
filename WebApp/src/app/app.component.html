@@ -12,7 +12,7 @@
       <div class="card-body">
         <h1 class="card-title pricing-card-title">MGLT</h1>
         <p>
-          <input type="text" placeholder="1000000" [(ngModel)]="mGLT">
+          <input type="text" placeholder="1000000" [(ngModel)]="mGLT" mask="999999999">
         </p>
         <button type="button" class="btn btn-lg btn-block btn-primary" (click)="getResupplyStarShips();">Process >>></button>
       </div>
@@ -33,7 +33,7 @@
         <h1 class="card-title pricing-card-title" *ngIf="!starShips">No Results yet</h1>
         <ul class="list-unstyled mt-3 mb-4" *ngIf="starShips">
           <li *ngFor="let starShip of starShips">
-            {{ starShip.name }} : {{ starShip.stopsCount }}
+            {{ starShip.name }} : <b>{{ starShip.stopsCount }}</b>
           </li>
         </ul>
       </div>
