@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StartshipService } from './startship.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,18 @@ export class AppComponent {
   starShips: any;
   mGLT: number;
 
-  constructor(private startshipService: StartshipService) {
+  constructor(private startshipService: StartshipService,
+    private spinner: NgxSpinnerService) {
   }
 
   public getResupplyStarShips() {
+    this.starShips = null;
+    this.spinner.show();
     this.startshipService.getResupplyStarShips(this.mGLT)
-    .subscribe((data: any) => this.starShips = data);
+    .subscribe(data => {
+      this.starShips = data;
+      this.spinner.hide();
+    });
   }
 
 }

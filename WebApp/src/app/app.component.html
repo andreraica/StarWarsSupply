@@ -1,27 +1,42 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Welcome to {{ title }}!</h1>
+  <p class="StarWarsLogo"></p>
 </div>
-<div class="row">
-  <div class="col-md-4">
-    <div  class="StarWarsLogo"></div>
-  </div>
-  <div class="col-md-4 align-middle">
-    <h2>MGPL:</h2>
-    <p>
-      <input type="text" value="1000000" [(ngModel)]="mGLT">
-    </p>
-    <p>
-      <button class="btn btn-secondary" (click)="getResupplyStarShips();" >Process »</button>
-    </p>
-  </div>
-  <div class="col-md-4 align-middle"> 
-    <h2>StarShips Resuply:</h2>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let starShip of starShips">
-          {{ starShip.name }} : {{ starShip.stopsCount }}
-        </li>
-      </ul>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Input Data:</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">MGLT</h1>
+        <p>
+          <input type="text" placeholder="1000000" [(ngModel)]="mGLT">
+        </p>
+        <button type="button" class="btn btn-lg btn-block btn-primary" (click)="getResupplyStarShips();">Process >>></button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">StarShip Results:</h4>
+      </div>
+      <div class="card-body">
+
+        <ngx-spinner
+          bdColor="rgba(51,51,51,0.8)"
+          size="medium"
+          color="#fff"
+          type="ball-scale-multiple">
+        </ngx-spinner>
+
+        <h1 class="card-title pricing-card-title" *ngIf="!starShips">No Results yet</h1>
+        <ul class="list-unstyled mt-3 mb-4" *ngIf="starShips">
+          <li *ngFor="let starShip of starShips">
+            {{ starShip.name }} : {{ starShip.stopsCount }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
