@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div  class="StarWarsLogo"></div>
+  </div>
+  <div class="col-md-4 align-middle">
+    <h2>MGPL:</h2>
+    <p>
+      <input type="text" value="1000000" [(ngModel)]="mGLT">
+    </p>
+    <p>
+      <button class="btn btn-secondary" (click)="getResupplyStarShips();" >Process »</button>
+    </p>
+  </div>
+  <div class="col-md-4 align-middle"> 
+    <h2>StarShips Resuply:</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let starShip of starShips">
+          {{ starShip.name }} : {{ starShip.stopsCount }}
+        </li>
+      </ul>
+  </div>
+</div>
