@@ -1,4 +1,4 @@
-# StarWarsSupply
+﻿# StarWarsSupply
 
 This is a simple application that calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT).
 
@@ -98,7 +98,8 @@ To calcule how many stops for resupply were required this formula has applied:
 
 **This project is using SOLID concepts**
 
-* User Input: Console Application
+* User Input 1: Console Application
+* User Input 2: Angular Application / WebAPI
 * Project Tiers: Class Library
 * Project Test: xUnit
 
@@ -136,8 +137,6 @@ To calcule how many stops for resupply were required this formula has applied:
 **FrontEnd**
 
  - Add Configuration File
- - Add Mask validator
- - Add Load and improve layour
  
 License
 ----
