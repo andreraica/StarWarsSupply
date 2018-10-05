@@ -48,13 +48,14 @@ docker push andreraica/starwarssupplycalculator
 **You Can decide if Step1 must run on IISExpress or Docker**
 #### >>> Visual Studio Solution 
 
+### STEP 1 - Backend
 #### IIS Express - WebApi (Step1)
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
 3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
 4) Just Test your API running: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
 
-#### Docker Compose - WebApi (Step1)
+#### Docker Compose - WebApi (Step1) - UNDER CONSTRUCTION (compose file hidded, if you want to try just add to the solution)
 **Make sure that your Docker is running in your machine**
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project
@@ -62,6 +63,7 @@ docker push andreraica/starwarssupplycalculator
 4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
 
 
+### STEP 2 - Frontend
 #### >>> PowerShell (Use your favorite Prompt) - Angular Front (Step2)
 1) Go to the 'StarWarsSupply\WebApp' folder
 2) run command:
