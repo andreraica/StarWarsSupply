@@ -1,12 +1,11 @@
 ﻿using Domain.Models.Enum;
-using System;
 using System.Linq;
 
 namespace Domain.Models
 {
     public class Consumable
     {
-        private const Int16 hoursPerDay = 24, errorNumber = -1;
+        private const short hoursPerDay = 24, errorNumber = -1;
 
         public Consumable(string consumableAPI)
         {
@@ -36,13 +35,15 @@ namespace Domain.Models
 
             if (consumableAPISplited.Length == 2)
             {
-                Quantity = Convert.ToInt32(consumableAPISplited[0]);
+                if (int.TryParse(consumableAPISplited[0], out int quantity))
+                    Quantity = quantity;
+
                 var consumable = consumableAPISplited[1].ToLower();
 
-                EPeriod? period = System.Enum.GetValues(typeof(EPeriod)).Cast<EPeriod>()
-                        .FirstOrDefault(x => consumable.ToLower().Contains(x.ToString().ToLower()));
+                var periodSearch = System.Enum.GetValues(typeof(EPeriod)).Cast<EPeriod>().ToList()
+                    .Where(x => consumable.ToLower().Contains(x.ToString().ToLower()));
 
-                Period = (period != null) ? (EPeriod)period : EPeriod.Unknown;
+                Period = (periodSearch.Count() > 0) ? periodSearch.First() : EPeriod.Unknown;
             }
         }
     }

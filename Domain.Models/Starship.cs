@@ -14,7 +14,7 @@ namespace Domain.Models
         }
 
         public string Name { get; private set; }
-        public Int32 MGLT { get; private set; }
+        public int MGLT { get; private set; }
         public Consumable Consumable { get; private set; }
 
         public long CalculateSupply(long distanceMGLT)

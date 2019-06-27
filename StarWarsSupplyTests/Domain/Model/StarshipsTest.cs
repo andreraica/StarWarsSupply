@@ -6,6 +6,20 @@ namespace StarWarsSupplyTests.Domain.Model
 {
     public class StarshipsTest
     {
+
+        [Theory]
+        [InlineData("ship1", 80, 1, EPeriod.Week)]
+        public void Must_InitializeProperly(string starShipName, int starshipMGLT, int consumableQuantity, EPeriod consumablePeriod)
+        {
+            var consumable = new Consumable(consumableQuantity, consumablePeriod);
+            var starship = new Starship(starShipName, starshipMGLT, consumable);
+
+            Assert.Equal(starship.Name, starShipName);
+            Assert.Equal(starship.MGLT, starshipMGLT);
+            Assert.Equal(starship.Consumable.Quantity, consumableQuantity);
+            Assert.Equal(starship.Consumable.Period, consumablePeriod);
+        }
+
         [Theory]
         [InlineData(1000000, 80, 1, EPeriod.Week, 74)]
         [InlineData(1000000, 75, 2, EPeriod.Month, 9)]

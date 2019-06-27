@@ -48,8 +48,7 @@ namespace Infrastructure.Data.Repositories
         {
             foreach (var starshipSWAPI in starshipsSWAPI)
             {
-                int mGLT = 0;
-                int.TryParse(starshipSWAPI.MGLT, out mGLT);
+                int.TryParse(starshipSWAPI.MGLT, out int mGLT);
 
                 _starships.Add(new Starship(
                     starshipSWAPI.Name, mGLT, new Consumable(starshipSWAPI.Consumables))

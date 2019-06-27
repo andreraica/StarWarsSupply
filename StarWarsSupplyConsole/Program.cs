@@ -8,14 +8,16 @@ namespace StarWarsSupplyConsole
     {
         private static IStarshipService _starshipService;
 
-        static void Main(string[] args)
+        static void Main()
         {
             Configure();
 
-            Console.Write("MGLT: ");
+            Console.WriteLine("************ ");
+            Console.WriteLine("Simple application that calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT) for each avaiable StarShip ");
+            Console.WriteLine("************ ");
+            Console.Write("Input the distance in MGLT: ");
 
-            long distanceMGLT = 0;
-            if (Int64.TryParse(Console.ReadLine(), out distanceMGLT))
+            if (long.TryParse(Console.ReadLine(), out long distanceMGLT))
             {
                 Console.WriteLine("Processing...\n");
 
