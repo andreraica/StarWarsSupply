@@ -1,16 +1,16 @@
 ﻿# StarWarsSupply
 
-This is a simple application that calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT).
+This is a simple application that calculates how many resupply stops are required to cover a given distance in mega lights (MGLT).
 
 **Both works independentily**
 *Console Application (Console/Prompt)
-*Web Application (WebApi + Angular)
+*Web Application (Public WebApi + Angular)
 
 ### Requeriments
 
 * [Visual Studio] - Microsoft Visual Studio!
 * [.NET Core 2.1] - SDK/RunTime Microsoft .NET Core 2.1 [https://www.microsoft.com/net/download/dotnet-core/2.1]
-* (Optional) Docker Tools (Docker for Windows or Mac) - If you want to run the project with Docker :)
+* (Optional) Docker (Docker for Windows or Mac) - If you intend to run the project with Docker localy :)
 
 ### CONSOLE APPLICATION - Run Steps
 ****
@@ -29,8 +29,8 @@ docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator
 3) Input MGLT in console and wait (example 1000000)
 
 ##### *How this image was built / published
-File dockerfile was created inside Console Application folder
-Inside the Console Application:
+The file "dockerfile" was created inside Console Application folder
+Inside the Console Application folder was executed:
 
 **Building**
 ```sh
@@ -39,13 +39,15 @@ docker build -t andreraica/starwarssupplycalculator .
 ````
 **Publishing**
 ```sh
+md publish
 docker login
+docker build --tag andreraica/starwarssupplycalculator .
 docker push andreraica/starwarssupplycalculator
 ````
 
 ### WEB APPLICATION - Run Steps
 ****
-**You Can decide if Step1 must run on IISExpress or Docker**
+**You can choode between run in IISExpress or Docker on Step1**
 #### >>> Visual Studio Solution 
 
 ### STEP 1 - Backend
@@ -129,11 +131,10 @@ To calcule how many stops for resupply were required this formula has applied:
 
 **General**
 
- - Intercept exceptions 
- - Think about change to Async Methods when consuming multiple SWAPI paged result
- - Add middleware Swagger
- - Adjust to read AppSettings.json
+ - Add a Swagger middleware 
  - Ajust Docker Compose to start Angular together WebApi (same container) 
+ - Intercept exceptions 
+ - Adjust to read AppSettings.json
  - Add coverage tests remaining Tiers
 
 **FrontEnd**
@@ -143,4 +144,5 @@ To calcule how many stops for resupply were required this formula has applied:
 License
 ----
 
-**Free by Andre Raiça Silva**
+** Free by Andre Raiça Silva ** 
+** :) **
