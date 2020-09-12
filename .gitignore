@@ -30,5 +30,14 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
+# Publish results
+[Pp]ublish/
+[Pp]ublishing/
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Tt]est[Rr]esults*/
+[Bb]uild[Ll]og.*
+
 # Visual Studio 2015
 .vs/
