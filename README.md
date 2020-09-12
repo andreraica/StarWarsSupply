@@ -94,7 +94,7 @@ To calcule how many stops for resupply were required this formula has applied:
 
 ### Data API
 
-> Every data have consumed using the free API: https://swapi.co
+> Every data have consumed using the free API: https://swapi.dev
 
 ### Basic Tech
 
