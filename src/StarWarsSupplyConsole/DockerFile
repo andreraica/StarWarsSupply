@@ -1,6 +1,10 @@
+# dotnet publish -c Release -o publish
+
 FROM microsoft/dotnet:2.1-sdk
 
 COPY ./publish /publish
 WORKDIR /publish
 
-ENTRYPOINT ["dotnet", "StarWarsSupplyConsole.dll"]
+ENTRYPOINT ["dotnet", "StarWarsSupply.Presentation.Console.dll"]
+
+# docker build -t andreraica/starwarssupplycalculator_console .
