@@ -1,19 +1,16 @@
-﻿using Infrastructure.IoC;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.IO;
+﻿using StarWarsSupply.Infrastructure.IoC;
 
-using SimpleInjector;
-using SimpleInjector.Lifestyles;
-using SimpleInjector.Integration.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
-
-namespace StarWarsSupplyWebAPI
+namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc.Controllers;
+    using Microsoft.AspNetCore.Mvc.ViewComponents;
+    using Microsoft.Extensions.DependencyInjection;
+    using SimpleInjector;
+    using SimpleInjector.Integration.AspNetCore.Mvc;
+
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)

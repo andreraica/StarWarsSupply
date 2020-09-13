@@ -1,8 +1,8 @@
-﻿using Domain.Models;
-using System.Collections.Generic;
-
-namespace Domain.Interfaces.Data.Repositories
+﻿namespace StarWarsSupply.Domain.Interfaces.Data.Repositories
 {
+    using System.Collections.Generic;
+    using StarWarsSupply.Domain.Models;
+    
     public interface IStarshipRepository
     {
         IEnumerable<Starship> GetAllStarships();

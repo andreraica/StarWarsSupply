@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2018
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{6F4B932F-87F8-475A-B457-C39F59A9ECA1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsSupplyConsole", "StarWarsSupplyConsole\StarWarsSupplyConsole.csproj", "{70596998-F591-4E74-BF25-323905DB99D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Console", "StarWarsSupplyConsole\Presentation.Console.csproj", "{70596998-F591-4E74-BF25-323905DB99D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D1025DFB-2024-4D00-9166-7D9DA4C915C4}"
 EndProject
@@ -37,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.IoC", "Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{2C7E87D7-C569-4683-8CF7-459A227765E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsSupplyWebAPI", "StarWarsSupplyWebAPI\StarWarsSupplyWebAPI.csproj", "{6661829E-F07C-484F-B4D3-B1D9A7443934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.WebAPI", "StarWarsSupplyWebAPI\Presentation.WebAPI.csproj", "{6661829E-F07C-484F-B4D3-B1D9A7443934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,16 +75,12 @@ Global
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{70596998-F591-4E74-BF25-323905DB99D7} = {6F4B932F-87F8-475A-B457-C39F59A9ECA1}
+		{70596998-F591-4E74-BF25-323905DB99D7} = {2C7E87D7-C569-4683-8CF7-459A227765E6}
 		{D639F72D-C164-405D-9DD5-8861D9A87B74} = {D1025DFB-2024-4D00-9166-7D9DA4C915C4}
 		{DFADF23E-54B0-4E4A-BE25-2F397CF3BB5E} = {3D62EEA0-951C-48FD-929A-206758385A53}
 		{3D36BF5C-2609-468A-8C19-F0F045EBF12D} = {3D62EEA0-951C-48FD-929A-206758385A53}

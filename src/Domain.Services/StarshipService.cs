@@ -1,10 +1,10 @@
-﻿using Domain.Interfaces.Data.Repositories;
-using Domain.Interfaces.Services;
-using Domain.Models;
-using System.Collections.Generic;
-
-namespace Domain.Services
+﻿namespace StarWarsSupply.Domain.Services
 {
+    using System.Collections.Generic;
+    using StarWarsSupply.Domain.Interfaces.Data.Repositories;
+    using StarWarsSupply.Domain.Interfaces.Services;
+    using StarWarsSupply.Domain.Models;
+
     public class StarshipService : IStarshipService
     {
         private readonly IStarshipRepository _starshipRepository;

@@ -1,10 +1,11 @@
-﻿using Domain.Interfaces.Services;
-using Microsoft.AspNetCore.Mvc;
-using StarWarsSupplyWebAPI.ViewModel;
-using System.Collections.Generic;
+﻿using StarWarsSupply.Domain.Interfaces.Services;
+using StarWarsSupply.Presentation.StarWarsSupply.WebAPI.ViewModel;
 
-namespace StarWarsSupplyWebAPI.Conrollers
+namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI.Conrollers
 {
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("api/[controller]")]
     public class StarshipController : Controller
     {

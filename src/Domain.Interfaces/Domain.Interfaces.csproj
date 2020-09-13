@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>StarWarsSupply.Domain.Interfaces</RootNamespace>
+    <AssemblyName>StarWarsSupply.Domain.Interfaces</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

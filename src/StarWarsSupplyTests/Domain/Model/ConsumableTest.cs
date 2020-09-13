@@ -1,9 +1,9 @@
-﻿using Domain.Models;
-using Domain.Models.Enum;
-using Xunit;
-
-namespace StarWarsSupplyTests.Domain.Model
+﻿namespace StarWarsSupplyTests.Domain.Model
 {
+    using StarWarsSupply.Domain.Models;
+    using StarWarsSupply.Domain.Models.Enum;
+    using Xunit;
+
     public class ConsumableTest
     {
         [Fact]

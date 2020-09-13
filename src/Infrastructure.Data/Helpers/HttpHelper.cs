@@ -1,8 +1,8 @@
-﻿using Domain.Interfaces.Data.Helpers;
-using System.Net.Http;
-
-namespace Infrastructure.Data.Helpers
+﻿namespace StarWarsSupply.Infrastructure.Data.Helpers
 {
+    using System.Net.Http;
+    using StarWarsSupply.Domain.Interfaces.Data.Helpers;
+    
     public class HttpHelper : IHttpClient
     {
         public HttpResponseMessage Get(string url)

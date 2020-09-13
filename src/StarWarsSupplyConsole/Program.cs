@@ -1,9 +1,9 @@
-﻿using Domain.Interfaces.Services;
-using Infrastructure.IoC;
-using System;
-
-namespace StarWarsSupplyConsole
+﻿namespace StarWarsSupply.Presentation.StarWarsSupplyConsole
 {
+    using System;
+    using StarWarsSupply.Domain.Interfaces.Services;
+    using StarWarsSupply.Infrastructure.IoC;
+
     class Program
     {
         private static IStarshipService _starshipService;

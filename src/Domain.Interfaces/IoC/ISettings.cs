@@ -1,4 +1,4 @@
-﻿namespace Domain.Interfaces.IoC
+﻿namespace StarWarsSupply.Domain.Interfaces.IoC
 {
     public interface ISettings
     {

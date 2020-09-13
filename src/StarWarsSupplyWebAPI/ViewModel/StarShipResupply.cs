@@ -1,4 +1,4 @@
-﻿namespace StarWarsSupplyWebAPI.ViewModel
+﻿namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI.ViewModel
 {
     public class StarShipResupply
     {

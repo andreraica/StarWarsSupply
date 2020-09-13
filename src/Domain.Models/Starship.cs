@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Domain.Models
+﻿namespace StarWarsSupply.Domain.Models
 {
+    using System;
+
     public class Starship
     {
         private const int errorNumber = -1;

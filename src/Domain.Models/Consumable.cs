@@ -1,8 +1,8 @@
-﻿using Domain.Models.Enum;
-using System.Linq;
-
-namespace Domain.Models
+﻿namespace StarWarsSupply.Domain.Models
 {
+    using System.Linq;
+    using StarWarsSupply.Domain.Models.Enum;
+    
     public class Consumable
     {
         private const short hoursPerDay = 24, errorNumber = -1;
