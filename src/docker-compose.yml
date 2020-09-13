@@ -2,7 +2,16 @@ version: '3.4'
 
 services:
   starwarssupplywebapi:
-    image: ${DOCKER_REGISTRY}starwarssupplywebapi
+    image: "andreraica/starwarssupplycalculator_webapi"
     build:
-      context: .
-      dockerfile: StarWarsSupplyWebAPI/Dockerfile
+      context: ./StarWarsSupplyWebAPI
+      dockerfile: Dockerfile
+
+  #starwarssupplywebconsole:
+  #  image: "andreraica/starwarssupplycalculator_console"
+  #  build:
+  #    context: ./StarWarsSupplyConsole
+  #    dockerfile: Dockerfile
+  
+# docker-compose build
+# docker-compose up
