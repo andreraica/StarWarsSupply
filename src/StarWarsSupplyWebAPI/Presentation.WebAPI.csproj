@@ -5,6 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <UserSecretsId>c527858b-fecd-45e8-a87a-497b2244283b</UserSecretsId>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <RootNamespace>StarWarsSupply.Presentation.WebAPI</RootNamespace>
+    <AssemblyName>StarWarsSupply.Presentation.WebAPI</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Domain.Models.Enum
+﻿namespace StarWarsSupply.Domain.Models.Enum
 {
     /// <summary>
     /// Days Quantity

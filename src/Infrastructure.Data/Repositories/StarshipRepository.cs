@@ -1,13 +1,13 @@
-﻿using Domain.Interfaces.Data.Helpers;
-using Domain.Interfaces.Data.Repositories;
-using Domain.Interfaces.IoC;
-using Domain.Models;
-using Infrastructure.Data.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-
-namespace Infrastructure.Data.Repositories
+﻿namespace StarWarsSupply.Infrastructure.Data.Repositories
 {
+    using System.Collections.Generic;
+    using Newtonsoft.Json;
+    using StarWarsSupply.Domain.Interfaces.Data.Helpers;
+    using StarWarsSupply.Domain.Interfaces.Data.Repositories;
+    using StarWarsSupply.Domain.Interfaces.IoC;
+    using StarWarsSupply.Domain.Models;
+    using StarWarsSupply.Infrastructure.Data.Models;
+
     public class StarshipRepository : IStarshipRepository
     {
         private readonly IHttpClient _httpClient;

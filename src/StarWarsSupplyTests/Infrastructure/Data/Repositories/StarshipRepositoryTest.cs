@@ -1,13 +1,13 @@
-﻿using Domain.Interfaces.Data.Helpers;
-using Domain.Interfaces.IoC;
-using Infrastructure.Data.Repositories;
-using Moq;
-using StarWarsSupplyTests.Infrastructure.Data.Stub;
-using System.Linq;
-using Xunit;
-
-namespace StarWarsSupplyTests.Infrastructure.Data.Repositories
+﻿namespace StarWarsSupplyTests.Infrastructure.Data.Repositories
 {
+    using System.Linq;
+    using Moq;
+    using Xunit;
+    using StarWarsSupply.Domain.Interfaces.Data.Helpers;
+    using StarWarsSupply.Domain.Interfaces.IoC;
+    using StarWarsSupply.Infrastructure.Data.Repositories;
+    using StarWarsSupplyTests.Infrastructure.Data.Stub;
+
     public class StarshipRepositoryTest
     {
         Mock<ISettings> settingsMock = new Mock<ISettings>();

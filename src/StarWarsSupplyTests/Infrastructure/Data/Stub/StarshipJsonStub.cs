@@ -1,10 +1,10 @@
-﻿using Infrastructure.Data.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http;
-
-namespace StarWarsSupplyTests.Infrastructure.Data.Stub
+﻿namespace StarWarsSupplyTests.Infrastructure.Data.Stub
 {
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using Newtonsoft.Json;
+    using StarWarsSupply.Infrastructure.Data.Models;
+
     public class StarshipHttpResponseStub
     {
         public static HttpResponseMessage AllPage1()

@@ -1,16 +1,16 @@
-﻿using Domain.Interfaces.Data.Helpers;
-using Domain.Interfaces.Data.Repositories;
-using Domain.Interfaces.IoC;
-using Domain.Interfaces.Services;
-using Domain.Services;
-using Infrastructure.Data.Helpers;
-using Infrastructure.Data.Repositories;
-using Infrastructure.IoC.Setting;
-using SimpleInjector;
-using System.Configuration;
-
-namespace Infrastructure.IoC
+﻿namespace StarWarsSupply.Infrastructure.IoC
 {
+    using System.Configuration;
+    using SimpleInjector;
+    using StarWarsSupply.Domain.Interfaces.Data.Helpers;
+    using StarWarsSupply.Domain.Interfaces.Data.Repositories;
+    using StarWarsSupply.Domain.Interfaces.IoC;
+    using StarWarsSupply.Domain.Interfaces.Services;
+    using StarWarsSupply.Domain.Services;
+    using StarWarsSupply.Infrastructure.Data.Helpers;
+    using StarWarsSupply.Infrastructure.Data.Repositories;
+    using StarWarsSupply.Infrastructure.IoC.Setting;
+
     public static class Injector
     {
         public static Container Start()

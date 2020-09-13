@@ -10,9 +10,9 @@ This is a simple application that calculates how many resupply stops are require
 
 * [Visual Studio] - Microsoft Visual Studio!
 * [.NET Core 2.1] - SDK/RunTime Microsoft .NET Core 2.1 [https://www.microsoft.com/net/download/dotnet-core/2.1]
-* (Optional) Docker (Docker for Windows or Mac) - If you intend to run the project with Docker localy :)
-
-### CONSOLE APPLICATION - Run Steps
+* (Optional) Docker (Docker for Windows or Mac) - If you intend to run the project with Docker localy :smile:
+    
+### CONSOLE APPLICATION - How to RUN Steps
 ****
 #### >>> Visual Studio Solution
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
@@ -45,32 +45,39 @@ docker build --tag andreraica/starwarssupplycalculator .
 docker push andreraica/starwarssupplycalculator
 ````
 
-### WEB APPLICATION - Run Steps
+### WEB APPLICATION - How to RUN Steps
 ****
 **You can choode between run in IISExpress or Docker on Step1**
 #### >>> Visual Studio Solution 
 
-### STEP 1 - Backend
+### STEP 1 - BACKEND - (WebApi)
 #### IIS Express - WebApi (Step1)
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
 3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
 4) Just Test your API running: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
 
-#### Docker Compose - WebApi (Step1) - UNDER CONSTRUCTION (compose file hidded, if you want to try just add to the solution)
-**Make sure that your Docker is running in your machine**
+#### Docker Compose - WebApi (Step1) - UNDER CONSTRUCTION (the compose file is hidden, just add it to the solution)
+**Make sure that Docker is running in your machine**
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project
 3) Press play button 'Docker Compose'
 4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
 
 
-### STEP 2 - Frontend
-#### >>> PowerShell (Use your favorite Prompt) - Angular Front (Step2)
-1) Go to the 'StarWarsSupply\WebApp' folder
+### STEP 2 - FRONTEND (WebSite)
+#### >>> Command (PowerShell, DOS or your favorite Prompt) - Angular Front (Step2)
+* Currently Configuration Info - src\app\startship.service.ts
+```sh
+https://localhost:44351/api/Starship/${mGLT}
+```
+
+
+1) Go to the 'StarWarsSupply\WebApp\src' folder
 2) run command:
 ```sh
-ng serve
+npm install
+ng serve --open
 ````
 3) Acess your WebApp - ex. http://localhost:4200
 3) Input MGLT in console and wait (example 1000000)
@@ -83,7 +90,6 @@ ng serve
 2) Choose Menu Test/Run All Tests
 
 # About Project!
-****
 ### Calculation
 
 To calcule how many stops for resupply were required this formula has applied: 
@@ -107,7 +113,7 @@ To calcule how many stops for resupply were required this formula has applied:
 * Project Tiers: Class Library
 * Project Test: xUnit
 
-**Tiers:**
+**Design Code:**
 >Domain 
 * Model & Services: Domain is a global tier used by all tiers providing the main entities and services
 
@@ -131,6 +137,8 @@ To calcule how many stops for resupply were required this formula has applied:
 
 **General**
 
+ - Migration .Net Core 2.1 to  3.1
+ - Migration SimpleInjector Package to .Net Native Injector
  - Add a Swagger middleware 
  - Ajust Docker Compose to start Angular together WebApi (same container) 
  - Intercept exceptions 
@@ -139,10 +147,8 @@ To calcule how many stops for resupply were required this formula has applied:
 
 **FrontEnd**
 
- - Add Configuration File
+ - Add Configuration File instead of fixed WebApi url
  
 License
-----
 
-** Free by Andre Raiça Silva ** 
-** :) **
+** Free by Andre Raiça Silva :sunglasses:

@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Data.Models
+﻿namespace StarWarsSupply.Infrastructure.Data.Models
 {
     public class StarshipSWAPI
     {
