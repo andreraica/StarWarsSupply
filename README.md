@@ -24,7 +24,7 @@ This is a simple application that calculates how many resupply stops are require
 1) Make sure that your Docker is running
 2) Open your prompt and execute this code bellow:
 ```sh
-docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator
+docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator_console
 ```
 3) Input MGLT in console and wait (example 1000000)
 
@@ -35,14 +35,13 @@ Inside the Console Application folder was executed:
 **Building**
 ```sh
 dotnet publish -c Release -o publish
-docker build -t andreraica/starwarssupplycalculator .
+docker build -t andreraica/starwarssupplycalculator_console .
 ````
 **Publishing**
 ```sh
-md publish
 docker login
-docker build --tag andreraica/starwarssupplycalculator .
-docker push andreraica/starwarssupplycalculator
+docker build --tag andreraica/starwarssupplycalculator_console .
+docker push andreraica/starwarssupplycalculator_console
 ````
 
 ### WEB APPLICATION - How to RUN Steps
@@ -55,14 +54,39 @@ docker push andreraica/starwarssupplycalculator
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
 3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
-4) Just Test your API running: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
+4) Just Test your API running putting this url in a browser url: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
 
-#### Docker Compose - WebApi (Step1) - UNDER CONSTRUCTION (the compose file is hidden, just add it to the solution)
+#### Docker Compose - WebApi (Step1)
 **Make sure that Docker is running in your machine**
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project
 3) Press play button 'Docker Compose'
 4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
+
+
+#### >>> Docker Hub Image
+1) Make sure that your Docker is running
+2) Open your prompt and execute this code bellow:
+```sh
+docker run -p 44351:44351 andreraica/starwarssupplycalculator_webapi
+```
+3) try it: https://localhost:44351/api/Starship/1000000
+
+##### *How this image was built / published
+The file "dockerfile" was created inside WebApi Application folder
+Inside the WebApi Application folder was executed:
+
+**Building**
+```sh3
+dotnet publish -c Release -o publish
+docker build -t andreraica/starwarssupplycalculator_webapi .
+````
+**Publishing**
+```sh
+docker login
+docker build --tag andreraica/starwarssupplycalculator_webapi .
+docker push andreraica/starwarssupplycalculator_webapi
+````
 
 
 ### STEP 2 - FRONTEND (WebSite)
