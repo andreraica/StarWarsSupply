@@ -63,7 +63,6 @@ docker push andreraica/starwarssupplycalculator_console
 3) Press play button 'Docker Compose'
 4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
 
-
 #### >>> Docker Hub Image
 1) Make sure that your Docker is running
 2) Open your prompt and execute this code bellow:
@@ -87,7 +86,6 @@ docker login
 docker build --tag andreraica/starwarssupplycalculator_webapi .
 docker push andreraica/starwarssupplycalculator_webapi
 ````
-
 
 ### STEP 2 - FRONTEND (WebSite)
 #### >>> Command (PowerShell, DOS or your favorite Prompt) - Angular Front (Step2)
