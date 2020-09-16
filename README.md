@@ -50,20 +50,21 @@ docker push andreraica/starwarssupplycalculator_console
 #### >>> Visual Studio Solution 
 
 ### STEP 1 - BACKEND - (WebApi)
-#### IIS Express - WebApi (Step1)
+* Swagger: https://localhost:44351/swagger
+> IIS Express - WebApi (Step1)
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
 3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
 4) Just Test your API running putting this url in a browser url: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
 
-#### Docker Compose - WebApi (Step1)
+> Docker Compose - WebApi (Step1)
 **Make sure that Docker is running in your machine**
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project
 3) Press play button 'Docker Compose'
 4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
 
-#### >>> Docker Hub Image
+> Docker Hub Image
 1) Make sure that your Docker is running
 2) Open your prompt and execute this code bellow:
 ```sh
@@ -88,7 +89,7 @@ docker push andreraica/starwarssupplycalculator_webapi
 ````
 
 ### STEP 2 - FRONTEND (WebSite)
-#### >>> Command (PowerShell, DOS or your favorite Prompt) - Angular Front (Step2)
+> Command (PowerShell, DOS or your favorite Prompt) - Angular Front (Step2)
 * Currently Configuration Info - src\app\startship.service.ts
 ```sh
 https://localhost:44351/api/Starship/${mGLT}
@@ -106,7 +107,7 @@ ng serve --open
 4) Wait some seconds and you will see the return calculated list :)
 
 
-### Test Steps
+> Test Steps
 
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Choose Menu Test/Run All Tests
@@ -152,6 +153,7 @@ To calcule how many stops for resupply were required this formula has applied:
 * xUnit
 * Newtonsoft.Json
 * SimpleInjector
+* Swagger
 * Others .net Core Packages...
 
 
@@ -161,7 +163,7 @@ To calcule how many stops for resupply were required this formula has applied:
 
  - Migration .Net Core 2.1 to  3.1
  - Migration SimpleInjector Package to .Net Native Injector
- - Add a Swagger middleware 
+ - Add Poly package as a resilience external call
  - Ajust Docker Compose to start Angular together WebApi (same container) 
  - Intercept exceptions 
  - Adjust to read AppSettings.json

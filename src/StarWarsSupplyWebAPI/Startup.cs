@@ -16,6 +16,7 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSwaggerGen();
 
             IntegrateSimpleInjector(services);
         }
@@ -33,6 +34,12 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
             });
 
             app.UseMvc();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars Supply Calculator API V1");
+            });
         }
 
         private void IntegrateSimpleInjector(IServiceCollection services)
