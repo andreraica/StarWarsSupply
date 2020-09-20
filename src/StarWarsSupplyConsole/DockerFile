@@ -1,6 +1,6 @@
 # dotnet publish -c Release -o publish
 
-FROM microsoft/dotnet:2.1-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 COPY ./publish /publish
 WORKDIR /publish
@@ -8,3 +8,7 @@ WORKDIR /publish
 ENTRYPOINT ["dotnet", "StarWarsSupply.Presentation.Console.dll"]
 
 # docker build -t andreraica/starwarssupplycalculator_console .
+
+# >>> Publishing <<<
+# docker login
+# docker push andreraica/starwarssupplycalculator_console

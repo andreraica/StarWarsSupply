@@ -1,30 +1,31 @@
 ﻿# StarWarsSupply
 
-This is a simple application that calculates how many resupply stops are required to cover a given distance in mega lights (MGLT).
-
-**Both works independentily**
-*Console Application (Console/Prompt)
-*Web Application (Public WebApi + Angular)
+This is a simple application calculates how many resupply stops are required to cover a given distance in mega lights (MGLT).
 
 ### Requeriments
 
-* [Visual Studio] - Microsoft Visual Studio!
-* [.NET Core 2.1] - SDK/RunTime Microsoft .NET Core 2.1 [https://www.microsoft.com/net/download/dotnet-core/2.1]
+* [.NET Core 3.1] - SDK/RunTime Microsoft .NET Core 3.1 [https://dotnet.microsoft.com/download/dotnet-core/3.1]
+* (Optional) [Visual Studio] - Microsoft Visual Studio! or other tool
 * (Optional) Docker (Docker for Windows or Mac) - If you intend to run the project with Docker localy :smile:
     
+**There are 2 Apps and Both works independentily**
+* Console Application (Console/Prompt)
+* Web Application (Public WebApi + Angular)
+
+***
 ### CONSOLE APPLICATION - How to RUN Steps
-****
-#### >>> Visual Studio Solution
+***
+## Visual Studio Solution
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Console/StarWarsSupplyConsole as StartUp Project
 3) Press play button (This action should restore the Nuget Packages)
 4) Input MGLT in console and wait (example 1000000)
 
-#### >>> Docker Hub Image
+## Docker Hub Image
 1) Make sure that your Docker is running
 2) Open your prompt and execute this code bellow:
 ```sh
-docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator_console
+docker run -a stdin -a stdout -i -t andreraica/starwarssupplycalculator_console --name "SWSC"
 ```
 3) Input MGLT in console and wait (example 1000000)
 
@@ -40,29 +41,29 @@ docker build -t andreraica/starwarssupplycalculator_console .
 **Publishing**
 ```sh
 docker login
-docker build --tag andreraica/starwarssupplycalculator_console .
 docker push andreraica/starwarssupplycalculator_console
 ````
 
+***
 ### WEB APPLICATION - How to RUN Steps
-****
-**You can choode between run in IISExpress or Docker on Step1**
-#### >>> Visual Studio Solution 
+***
+**You can choose between run in IISExpress or Docker on Step1**
+### Visual Studio Solution 
 
-### STEP 1 - BACKEND - (WebApi)
-* Swagger: https://localhost:44351/swagger
+## STEP 1 - BACKEND - (WebApi)
+* Swagger: http://localhost:44351/swagger
 > IIS Express - WebApi (Step1)
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project Presentation/StarWarsSupplyWebAPI as StartUp Project
 3) Press play button 'IISExpress' (This action should restore the Nuget Packages - Make sure that all your Docker containers are stopped, avoiding ports conflicts)
-4) Just Test your API running putting this url in a browser url: - ex. https://localhost:44351/api/Starship/1000000 (wait for the Json result)
+4) Just Test your API running putting this url in a browser url: - ex. http://localhost:44351/api/Starship/1000000 (wait for the Json result)
 
 > Docker Compose - WebApi (Step1)
 **Make sure that Docker is running in your machine**
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project
 3) Press play button 'Docker Compose'
-4) Just Test you API - ex. https://localhost:44351/api/Starship/1000000
+4) Just Test you API - ex. http://localhost:44351/api/Starship/1000000
 
 > Docker Hub Image
 1) Make sure that your Docker is running
@@ -70,7 +71,7 @@ docker push andreraica/starwarssupplycalculator_console
 ```sh
 docker run -p 44351:44351 andreraica/starwarssupplycalculator_webapi
 ```
-3) try it: https://localhost:44351/api/Starship/1000000
+3) try it: http://localhost:44351/api/Starship/1000000
 
 ##### *How this image was built / published
 The file "dockerfile" was created inside WebApi Application folder
@@ -84,15 +85,14 @@ docker build -t andreraica/starwarssupplycalculator_webapi .
 **Publishing**
 ```sh
 docker login
-docker build --tag andreraica/starwarssupplycalculator_webapi .
 docker push andreraica/starwarssupplycalculator_webapi
 ````
 
-### STEP 2 - FRONTEND (WebSite)
+## STEP 2 - FRONTEND (WebSite)
 > Command (PowerShell, DOS or your favorite Prompt) - Angular Front (Step2)
 * Currently Configuration Info - src\app\startship.service.ts
 ```sh
-https://localhost:44351/api/Starship/${mGLT}
+http://localhost:44351/api/Starship/${mGLT}
 ```
 
 
@@ -112,22 +112,23 @@ ng serve --open
 1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Choose Menu Test/Run All Tests
 
+***
 # About Project!
-### Calculation
+## How the calculation works?
 
-To calcule how many stops for resupply were required this formula has applied: 
+To calcule how many stops for resupply were required, the follow formula has applied: 
 
-> consumableHours = Consumable per hour
-> distanceMGLT = Input distance in MGLT
-> MGLT = MGLT per Starship
+* consumableHours = Consumable per hour
+* distanceMGLT = Input distance in MGLT
+* MGLT = MGLT per Starship
 
 > Absolute value for: distanceMGLT / (consumableHours * MGLT)
 
-### Data API
+## Where is it getting the data?
 
-> Every data have consumed using the free API: https://swapi.dev
+> Every data are comming from the free web API: https://swapi.dev
 
-### Basic Tech
+## What are the base tech envolved?
 
 **This project is using SOLID concepts**
 
@@ -161,7 +162,6 @@ To calcule how many stops for resupply were required this formula has applied:
 
 **General**
 
- - Migration .Net Core 2.1 to  3.1
  - Migration SimpleInjector Package to .Net Native Injector
  - Add Poly package as a resilience external call
  - Ajust Docker Compose to start Angular together WebApi (same container) 

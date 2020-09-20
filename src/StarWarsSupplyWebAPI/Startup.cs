@@ -21,10 +21,9 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
             IntegrateSimpleInjector(services);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
 
             app.UseCors(c =>
             {
@@ -33,7 +32,6 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
                 c.AllowAnyOrigin();
             });
 
-            app.UseMvc();
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
