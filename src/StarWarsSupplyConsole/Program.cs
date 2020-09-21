@@ -1,19 +1,21 @@
 ﻿namespace StarWarsSupply.Presentation.StarWarsSupplyConsole
 {
     using System;
+    using Microsoft.Extensions.DependencyInjection;
     using StarWarsSupply.Domain.Interfaces.Services;
     using StarWarsSupply.Infrastructure.IoC;
 
     class Program
     {
         private static IStarshipService _starshipService;
+        private static ServiceProvider _serviceProvider;
 
         static void Main()
         {
             Configure();
 
             Console.WriteLine("************ ");
-            Console.WriteLine("Simple application that calculate how many stops for resupply are required to cover a given distance in mega lights (MGLT) for each avaiable StarShip ");
+            Console.WriteLine("This simple application calculates how many resupply stops are required to cover a given distance in mega lights (MGLT) for each avaiable StarShip ");
             Console.WriteLine("************ ");
             Console.Write("Input the distance in MGLT: ");
 
@@ -34,8 +36,10 @@
 
         private static void Configure()
         {
-            var containerInjection = Injector.Start();
-            _starshipService = containerInjection.GetInstance<IStarshipService>();
+            var services = Injector.StartConsole(new ServiceCollection());
+
+            _serviceProvider = services.BuildServiceProvider(true);
+            _starshipService = _serviceProvider.GetService<IStarshipService>();
         }
     }
 }

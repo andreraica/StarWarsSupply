@@ -1,7 +1,9 @@
 ﻿namespace StarWarsSupply.Infrastructure.IoC
 {
     using System.Configuration;
-    using SimpleInjector;
+
+    using Microsoft.Extensions.DependencyInjection;
+
     using StarWarsSupply.Domain.Interfaces.Data.Helpers;
     using StarWarsSupply.Domain.Interfaces.Data.Repositories;
     using StarWarsSupply.Domain.Interfaces.IoC;
@@ -13,25 +15,32 @@
 
     public static class Injector
     {
-        public static Container Start()
+        public static IServiceCollection Start(IServiceCollection services)
         {
-            var container = new Container();
+            services.AddScoped<IStarshipService, StarshipService>();
+            services.AddScoped<IStarshipRepository, StarshipRepository>();
+            services.AddScoped<IHttpClient, HttpHelper>();
 
-            container.Register<IStarshipService, StarshipService>();
-            container.Register<IStarshipRepository, StarshipRepository>();
-            container.Register<IHttpClient, HttpHelper>();
-
-            container.Register<ISettings, Settings>();
-
-            container.RegisterInitializer<Settings>(settings =>
+            services.AddSingleton<ISettings>(new Settings()
             {
-                settings.AppSettings = ConfigurationManager.AppSettings;
+                AppSettings = ConfigurationManager.AppSettings
             });
 
-            container.Verify();
-
-            return container;
+            return services;
         }
-        
+
+        public static IServiceCollection StartConsole(IServiceCollection services)
+        {
+            services.AddSingleton<IStarshipService, StarshipService>();
+            services.AddSingleton<IStarshipRepository, StarshipRepository>();
+            services.AddSingleton<IHttpClient, HttpHelper>();
+
+            services.AddSingleton<ISettings>(new Settings()
+            {
+                AppSettings = ConfigurationManager.AppSettings
+            });
+
+            return services;
+        }
     }
 }

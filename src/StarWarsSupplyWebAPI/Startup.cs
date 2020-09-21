@@ -1,15 +1,13 @@
 ﻿using StarWarsSupply.Infrastructure.IoC;
+using StarWarsSupply.Domain.Interfaces.Services;
+using StarWarsSupply.Domain.Services;
 
 namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc.Controllers;
-    using Microsoft.AspNetCore.Mvc.ViewComponents;
     using Microsoft.Extensions.DependencyInjection;
-    using SimpleInjector;
-    using SimpleInjector.Integration.AspNetCore.Mvc;
 
     public class Startup
     {
@@ -18,7 +16,7 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
             services.AddMvc();
             services.AddSwaggerGen();
 
-            IntegrateSimpleInjector(services);
+            RegisterInjector(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,21 +36,19 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars Supply Calculator API V1");
             });
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
 
-        private void IntegrateSimpleInjector(IServiceCollection services)
+        private void RegisterInjector(IServiceCollection services)
         {
-            var container = Injector.Start();
-
+            services = Injector.Start(services);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddSingleton<IControllerActivator>(
-                new SimpleInjectorControllerActivator(container));
-            services.AddSingleton<IViewComponentActivator>(
-                new SimpleInjectorViewComponentActivator(container));
-
-            services.EnableSimpleInjectorCrossWiring(container);
-            services.UseSimpleInjectorAspNetRequestScoping(container);
         }
     }
 }

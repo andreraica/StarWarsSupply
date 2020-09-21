@@ -143,7 +143,7 @@ To calcule how many stops for resupply were required, the follow formula has app
 
 >Infrastructure
 * Data: This tier consumes the WebAPI. It has your own model to manipulate the JSON and response to Services 
-* IoC: This tier just Inject all dependencies (DI) - using package SimpleInjector
+* IoC: This tier just Inject all dependencies (DI) - using Native Injector from Microsoft
 
 >Tests
 * This project implements all the mensurable tests in the scope
@@ -153,7 +153,7 @@ To calcule how many stops for resupply were required, the follow formula has app
 * Moq
 * xUnit
 * Newtonsoft.Json
-* SimpleInjector
+* Microsoft Native Injector
 * Swagger
 * Others .net Core Packages...
 
@@ -162,7 +162,6 @@ To calcule how many stops for resupply were required, the follow formula has app
 
 **General**
 
- - Migration SimpleInjector Package to .Net Native Injector
  - Add Poly package as a resilience external call
  - Ajust Docker Compose to start Angular together WebApi (same container) 
  - Intercept exceptions 

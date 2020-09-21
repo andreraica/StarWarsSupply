@@ -30,10 +30,11 @@
             do
             {
                 var response = _httpClient.Get(urlSWAPI);
-                var outputDataJson = response.Content.ReadAsStringAsync().Result;
-
+                
                 if (response.IsSuccessStatusCode)
                 {
+                    var outputDataJson = response.Content.ReadAsStringAsync().Result;
+
                     starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
                     MapToDomain(starshipSWAPI.Results);
                     urlSWAPI = starshipSWAPI.Next;
