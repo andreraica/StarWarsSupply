@@ -10,7 +10,7 @@ export class StartshipService {
   constructor(private http: HttpClient) {}
 
   public getResupplyStarShips(mGLT): Observable<any> {
-    return this.http.get(`https://localhost:44351/api/Starship/${mGLT}`);
+    return this.http.get(`http://localhost:44351/api/Starship/${mGLT}`);
   }
 
 }
