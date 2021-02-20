@@ -8,13 +8,19 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.OpenApi.Models;
 
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSwaggerGen();
+
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "StarWars Supply Calculator API" });
+            });
+            services.AddSwaggerGenNewtonsoftSupport();
 
             RegisterInjector(services);
         }
@@ -31,10 +37,10 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
             });
 
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars Supply Calculator API V1");
+                c.SwaggerEndpoint("./swagger/v1/swagger.json", "StarWars Supply Calculator API");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseRouting();
