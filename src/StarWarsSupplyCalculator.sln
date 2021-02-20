@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.WebAPI", "StarWarsSupplyWebAPI\Presentation.WebAPI.csproj", "{6661829E-F07C-484F-B4D3-B1D9A7443934}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9413501D-3FF5-46F2-874E-EBE9808E2EE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6661829E-F07C-484F-B4D3-B1D9A7443934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9413501D-3FF5-46F2-874E-EBE9808E2EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
