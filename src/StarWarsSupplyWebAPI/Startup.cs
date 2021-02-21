@@ -1,6 +1,4 @@
 ﻿using StarWarsSupply.Infrastructure.IoC;
-using StarWarsSupply.Domain.Interfaces.Services;
-using StarWarsSupply.Domain.Services;
 
 namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI
 {

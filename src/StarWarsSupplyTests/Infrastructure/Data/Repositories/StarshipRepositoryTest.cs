@@ -25,7 +25,7 @@
             httpClientMock.Setup(h => h.Get("page2")).Returns(StarshipHttpResponseStub.AllPage2());
 
             var starshipRepository = new StarshipRepository(httpClientMock.Object, settingsMock.Object);
-            var starships = starshipRepository.GetAllStarships();
+            var starships = starshipRepository.GetAllStarshipsAsync().Result;
 
             Assert.Equal(3, starships.Count());
         }
@@ -36,7 +36,7 @@
             httpClientMock.Setup(h => h.Get(string.Empty)).Returns(StarshipHttpResponseStub.NotFound());
 
             var starshipRepository = new StarshipRepository(httpClientMock.Object, settingsMock.Object);
-            var starships = starshipRepository.GetAllStarships();
+            var starships = starshipRepository.GetAllStarshipsAsync().Result;
 
             Assert.Empty(starships);
         }

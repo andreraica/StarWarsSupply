@@ -4,6 +4,7 @@ using StarWarsSupply.Presentation.StarWarsSupply.WebAPI.ViewModel;
 namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI.Conrollers
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("api/[controller]")]
@@ -21,7 +22,7 @@ namespace StarWarsSupply.Presentation.StarWarsSupply.WebAPI.Conrollers
         {
             var starShipsResupply = new List<StarShipResupply>();
 
-            foreach (var starship in _starshipService.GetStarships())
+            foreach (var starship in _starshipService.GetStarshipsAsync().Result)
                 starShipsResupply.Add(new StarShipResupply(starship.Name, starship.CalculateSupply(distanceMGLT)));
 
             return starShipsResupply;

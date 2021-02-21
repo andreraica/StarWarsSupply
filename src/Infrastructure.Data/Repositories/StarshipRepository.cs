@@ -1,7 +1,12 @@
 ﻿namespace StarWarsSupply.Infrastructure.Data.Repositories
 {
+    using System;
     using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Threading.Tasks;
     using Newtonsoft.Json;
+    using Polly;
+    using Polly.Retry;
     using StarWarsSupply.Domain.Interfaces.Data.Helpers;
     using StarWarsSupply.Domain.Interfaces.Data.Repositories;
     using StarWarsSupply.Domain.Interfaces.IoC;
@@ -10,18 +15,23 @@
 
     public class StarshipRepository : IStarshipRepository
     {
+        private const int MaxRetries = 3;
+        private readonly AsyncRetryPolicy _retryPolicy;
+
         private readonly IHttpClient _httpClient;
         private readonly ISettings _settings;
         private List<Starship> _starships;
+        
 
         public StarshipRepository(IHttpClient httpClient, ISettings settings)
         {
             _httpClient = httpClient;
             _settings = settings;
             _starships = new List<Starship>();
+            _retryPolicy = Policy.Handle<Exception>().RetryAsync(MaxRetries);
         }
 
-        public IEnumerable<Starship> GetAllStarships()
+        public async Task<IEnumerable<Starship>> GetAllStarshipsAsync()
         {
             StarshipResultSWAPI starshipSWAPI = null;
 
@@ -29,16 +39,19 @@
 
             do
             {
-                var response = _httpClient.Get(urlSWAPI);
-                
-                if (response.IsSuccessStatusCode)
+               await _retryPolicy.ExecuteAsync(async () =>
                 {
-                    var outputDataJson = response.Content.ReadAsStringAsync().Result;
+                    var response = _httpClient.Get(urlSWAPI);
 
-                    starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
-                    MapToDomain(starshipSWAPI.Results);
-                    urlSWAPI = starshipSWAPI.Next;
-                }
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var outputDataJson = response.Content.ReadAsStringAsync().Result;
+
+                        starshipSWAPI = JsonConvert.DeserializeObject<StarshipResultSWAPI>(outputDataJson);
+                        MapToDomain(starshipSWAPI.Results);
+                        urlSWAPI = starshipSWAPI.Next;
+                    }
+                });
 
             } while (starshipSWAPI != null && !string.IsNullOrEmpty(starshipSWAPI.Next));
 

@@ -154,14 +154,14 @@ To calcule how many stops for resupply were required, the follow formula has app
 
 ## What is the base tech involved?
 
-**This project is using SOLID concepts**
-
-* User Input 1: Console Application
-* User Input 2: Angular Application / WebAPI
+* User Terminal 1: Console Application
+* User Interface 2: Angular Application / WebAPI
 * Project Tiers: Class Library
 * Project Test: xUnit
 
-**Design Code:**
+*This project uses the SOLID concepts*
+
+**Base Design Code:**
 >Domain 
 * Model & Services: Domain is a global tier used by all tiers providing the main entities and services
 
@@ -174,6 +174,7 @@ To calcule how many stops for resupply were required, the follow formula has app
 * Using Moq & Stubs to emulate injections and isolating the tests
 
 **Packages:**
+* Polly
 * Moq
 * xUnit
 * Newtonsoft.Json
@@ -186,11 +187,11 @@ To calcule how many stops for resupply were required, the follow formula has app
 
 **General**
 
- - Add Poly package as a resilience external call
  - Ajust Docker Compose to start Angular together WebApi (same container) 
- - Intercept exceptions 
- - Adjust to read AppSettings.json
+ - Intercept exceptions corretly
+ - Adjust to read configuration from AppSettings.json
  - Add coverage tests remaining Tiers
+ - Change httpclient for httpfactory
 
 **FrontEnd**
 

@@ -23,7 +23,7 @@
             {
                 Console.WriteLine("Processing...\n");
 
-                foreach (var starship in _starshipService.GetStarships())
+                foreach (var starship in _starshipService.GetStarshipsAsync().Result)
                     Console.WriteLine($"{starship.Name}: {starship.CalculateSupply(distanceMGLT)}");
 
                 Console.WriteLine("\nDone.\nPress enter to close...");

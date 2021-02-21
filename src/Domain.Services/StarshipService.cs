@@ -1,6 +1,7 @@
 ﻿namespace StarWarsSupply.Domain.Services
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using StarWarsSupply.Domain.Interfaces.Data.Repositories;
     using StarWarsSupply.Domain.Interfaces.Services;
     using StarWarsSupply.Domain.Models;
@@ -14,9 +15,9 @@
             _starshipRepository = starshipRepository;
         }
 
-        public IEnumerable<Starship> GetStarships()
+        public async Task<IEnumerable<Starship>> GetStarshipsAsync()
         {
-            return _starshipRepository.GetAllStarships();
+            return await _starshipRepository.GetAllStarshipsAsync();
         }
     }
 }
