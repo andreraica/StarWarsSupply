@@ -29,6 +29,7 @@ https://www.docker.com/get-started
 4) Type the MGLT in the console and wait (example 1000000)
 
 ### **Using Docker Hub Image**
+
 1) Make sure that your Docker client is running locally
 2) Open your prompt and execute this code below:
 ```sh
@@ -182,10 +183,13 @@ To calcule how many stops for resupply were required, the follow formula has app
 * Swagger
 * Others .net Core Packages...
 
+**My Docker HUB images :**
+https://hub.docker.com/search?q=andreraica&type=image
 
-### Next Steps Todo
 
-**General**
+
+
+**TODO in General**
 
  - Ajust Docker Compose to start Angular together WebApi (same container) 
  - Intercept exceptions corretly
@@ -193,10 +197,12 @@ To calcule how many stops for resupply were required, the follow formula has app
  - Add coverage tests remaining Tiers
  - Change httpclient for httpfactory
 
-**FrontEnd**
+**TODO in FrontEnd**
 
  - Add Configuration File instead of fixed WebApi url
- 
+ - Resolve packages vulnerabilities
+ - Improve interface 
+
 License
 
 ** Free by Andre Raiça Silva :sunglasses:
