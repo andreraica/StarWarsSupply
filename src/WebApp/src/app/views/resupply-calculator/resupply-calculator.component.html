@@ -1,0 +1,27 @@
+<mat-card class="resupplycalculator">
+    <mat-card-title class="title">
+        Resupply Calculator
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="distance" [(ngModel)]="mGLT" name="mGLT">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="calculate()">
+        Calcular
+    </button>
+
+    <table mat-table [dataSource]="starShips" class="mat-elevation-z8" *ngIf="starShips != undefined">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let starship"> {{starship.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="stops">
+            <th mat-header-cell *matHeaderCellDef> Stops </th>
+            <td mat-cell *matCellDef="let starship"> {{starship.stopsCount}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</mat-card>

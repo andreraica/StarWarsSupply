@@ -1,0 +1,12 @@
+.resupply-calculator {
+    font-size: 3rem;
+}
+
+.resupply-calculator .subtitle{
+    font-size: 1.1rem;
+}
+
+table {
+    width: 100%;
+    overflow: scroll;
+}

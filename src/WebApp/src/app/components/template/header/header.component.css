@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 130px;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    -webkit-text-stroke: 1px #FFE919
+}
+
+.header .logo {
+    max-height: 130px;
+}
+
+.header .title-group {
+    padding-left: 30px;
+    font-size: 3.5rem;
+}
