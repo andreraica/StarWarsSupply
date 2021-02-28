@@ -1,17 +1,22 @@
-version: '3.4'
-
-services:
+ version: '3.4'
+ 
+ services:
   starwarssupplywebapi:
     image: "andreraica/starwarssupplycalculator_webapi"
     build:
       context: ./StarWarsSupplyWebAPI
       dockerfile: Dockerfile
-
-  #starwarssupplywebconsole:
-  #  image: "andreraica/starwarssupplycalculator_console"
-  #  build:
-  #    context: ./StarWarsSupplyConsole
-  #    dockerfile: Dockerfile
+    ports:
+      - '44351:44351'
+ 
+  starwarssupplywebapp:
+    image: "andreraica/starwarssupplycalculator_webapp"
+    build:
+      context: ./WebApp
+      dockerfile: Dockerfile
+    ports:
+      - '4200:4200'
+    command: >
+      bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
   
-# docker-compose build
-# docker-compose up
+# docker-compose up --build
