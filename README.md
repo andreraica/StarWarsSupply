@@ -63,7 +63,7 @@ docker push andreraica/starwarssupplycalculator_console
 <sub><i>You can choose to run it using IISExpress or Docker</sub></i>
 
 ## STEP 1 - BACKEND - (WebApi)
-Swagger: http://localhost:44351/swagger
+
 > IIS Express - WebApi
 1) Open solution file [...src\StarWarsSupplyCalculator.sln] in your Visual Studio
 2) Set the project [Presentation/Presentation.WebAPI] as StartUp Project
@@ -73,13 +73,25 @@ Swagger: http://localhost:44351/swagger
 
 4) Just Test your API typing this url in a browser: http://localhost:44351/api/Starship/1000000 (It is a GET, just wait for the Json result)
 
+Swagger: http://localhost:44351/swagger
+
 > Docker Compose - WebApi
 
 :warning: *Make sure that Docker is running in your machine*
+
+1) On the command prompt [...\src\] run:
+```sh
+docker-compose up --build
+```
+
+**OR**
+
 1) Open solution file [...\src\StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
 2) Set the project 'docker-compose' as StartUp Project (*wait one moment, because the VS will pull all needed images to run under docker*)
 3) Press play button 'Docker Compose'
 4) Just Test your API - http://localhost:44351/api/Starship/1000000
+
+Swagger: http://localhost:8082/swagger
 
 ### Docker Hub Approach
 
@@ -111,8 +123,8 @@ docker push andreraica/starwarssupplycalculator_webapi
 
 > On your prompt (PowerShell, DOS or your favorite Prompt) - Angular Front
 
-Current Api Configuration Info on [src\app\startship.service.ts]
-> http://localhost:44351/api/Starship/${mGLT}
+Current Api url is setted on Configuration file [src\environments\environments.ts]
+> http://localhost:44351/api
 
 
 <sub>Angular Cli needed to run the NG command</sub>
@@ -187,20 +199,17 @@ To calcule how many stops for resupply were required, the follow formula has app
 https://hub.docker.com/search?q=andreraica&type=image
 
 
-
-
 **TODO in General**
 
- - Ajust Docker Compose to start Angular together WebApi (same container) 
- - Intercept exceptions corretly
- - Adjust to read configuration from AppSettings.json
- - Add coverage tests remaining Tiers
  - Change httpclient for httpfactory
+ - Intercept exceptions corretly
+ - To set configuration based on AppSettings.json
+ - Add coverage tests remaining Tiers
+ - Use Queue if available
 
 **TODO in FrontEnd**
-
- - Add Configuration File instead of fixed WebApi url
- - Resolve packages vulnerabilities
+ 
+ - Intercept excceptions
  - Improve interface 
 
 License
