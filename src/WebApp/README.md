@@ -1,32 +1,30 @@
 
-# Starwarssupplyfront
+# StarWarsSupply FrontEnd using Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
-## Development server
+## How to run it
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> On your prompt (PowerShell, DOS or your favorite Prompt) - Angular Front
 
-## Code scaffolding
+Current Api url is setted on Configuration file [src\environments\environments.ts]
+> <http://localhost:44351/api>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular Cli needed to run the **NG** command
 
-## Build
+```sh
+npm install -g @angular/cli
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1) Go to the [StarWarsSupply\WebApp\src] folder
+2) run command:
 
-## Running unit tests
+    ```sh
+    npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ng serve --open
+    ````
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Command editor management
-
-ConEmu: https://www.fosshub.com/ConEmu.html
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3) Access your WebApp - ex. <http://localhost:4200>
+4) Type the MGLT int the console and wait (example 1000000)
+5) Wait some seconds and you will see the return json calculated list :)

@@ -10,7 +10,7 @@ So, keeping it in mind, this is a simple application that calculates how many re
     * The real reason for this project is to aggregate knowledge about new technologies.
 </sup>
 
-## Requeriments
+## Nice to have
 
 * [.NET Core 3.1] - SDK/RunTime Microsoft .NET Core 3.1 <https://dotnet.microsoft.com/download/dotnet-core/3.1>
 
@@ -19,10 +19,9 @@ So, keeping it in mind, this is a simple application that calculates how many re
 * (Optional) Docker (Docker for Windows or Mac) - If you prefer just to run the project with Docker locally :smile:
 <https://www.docker.com/get-started>
 
-** There are two applications that work independently
-
+There are two applications that work independently
 1. Console Application (Console/Prompt)
-2. Web Application (WebApi + Angular)
+2. Web Application (Api + Front)
 
 - - - -
 
@@ -71,49 +70,13 @@ docker push andreraica/starwarssupplycalculator_console
 
 ### 2. WEB APPLICATION - Steps
 
-#### **Visual Studio Approach**
+#### STEP 1 - BACKEND - (WebApi)
 
-##### *You can choose to run it using IISExpress or Docker*
+##### **Source Code Solution**
 
-### STEP 1 - BACKEND - (WebApi)
+> [How Run it using the source code - Readme](https://github.com/andreraica/StarWarsSupply/tree/master/src/StarWarsSupplyWebAPI)
 
-#### **IIS Express**
-
-1) Open solution file [...src\StarWarsSupplyCalculator.sln] in your Visual Studio
-2) Set the project [Presentation/Presentation.WebAPI] as StartUp Project
-3) Press the VS play button 'IISExpress' (This action should restore the Nuget Packages)
-
-    :warning: *Make sure that you are running nothing on Docker using the port 44351, avoiding port conflict*.
-
-4) Just Test your API typing this url in a browser: <http://localhost:44351/api/Starship/1000000> (It is a GET, just wait for the Json result)
-
-Swagger: <http://localhost:44351/swagger>
-
-##### **Test Steps**
-
-1) Open solution file [StarWarsSupplyCalculator.sln] in your Visual Studio
-2) Choose Menu Test/Run All Tests
-
-#### **Docker Compose**
-
-:warning: *Make sure that Docker is running in your machine*
-
-1) On the command prompt [...\src\] run:
-
-    ```sh
-    docker-compose up --build
-    ```
-
-OR:
-
-1) Open solution file [...\src\StarWarsSupplyCalculator.sln] in your Visual Studio as **Administrator**
-2) Set the project 'docker-compose' as StartUp Project (*wait one moment, because the VS will pull all needed images to run under docker*)
-3) Press play button 'Docker Compose'
-4) Just Test your API - <http://localhost:44351/api/Starship/1000000>
-
-Swagger: <http://localhost:8082/swagger>
-
-#### **Docker Hub Image**
+##### **Docker Hub Image**
 
 1) Make sure that your Docker is running
 2) Open your prompt and execute this code below:
@@ -126,7 +89,7 @@ Swagger: <http://localhost:8082/swagger>
 
 Swagger: <http://localhost:8082/swagger>
 
-#### **How was this image built & published?**
+##### **How was this image built & published?**
 
 One file named "dockerfile" was created in the WebApi Application folder [src\StarWarsSupplyWebAPI].
 Go to your prompt and execute the following command in this folder:
@@ -147,31 +110,11 @@ docker login
 docker push andreraica/starwarssupplycalculator_webapi
 ````
 
-### STEP 2 - FRONTEND (WebSite)
+#### STEP 2 - FRONTEND (WebSite)
 
-> On your prompt (PowerShell, DOS or your favorite Prompt) - Angular Front
+##### **Source Code Project**
 
-Current Api url is setted on Configuration file [src\environments\environments.ts]
-> <http://localhost:44351/api>
-
-Angular Cli needed to run the **NG** command
-
-```sh
-npm install -g @angular/cli
-```
-
-1) Go to the [StarWarsSupply\WebApp\src] folder
-2) run command:
-
-    ```sh
-    npm install
-
-    ng serve --open
-    ````
-
-3) Access your WebApp - ex. <http://localhost:4200>
-4) Type the MGLT int the console and wait (example 1000000)
-5) Wait some seconds and you will see the return json calculated list :)
+> [How Run it using the source code - Readme](https://github.com/andreraica/StarWarsSupply/tree/master/src/WebApp)
 
 - - - -
 
@@ -181,7 +124,7 @@ npm install -g @angular/cli
 
 ### **How the calculation works?**
 
-To calcule how many stops for resupply were required, the follow formula has applied: 
+To calcule how many stops for resupply were required, the follow formula has applied:
 
 * consumableHours = Consumable per hour
 * distanceMGLT = Input distance in MGLT
@@ -199,8 +142,8 @@ To calcule how many stops for resupply were required, the follow formula has app
 * User Interface 2: Angular Application / WebAPI
 * Project Tiers: Class Library
 * Project Test: xUnit
-
 * This project uses the SOLID concepts *
+* Angular - TypeScript
 
 **Base Design Code:**
 >Domain
