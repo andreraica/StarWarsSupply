@@ -2,24 +2,28 @@
 
 ## Summary
 
-Thinking that a starship needs to cover a specific distance, for complete its mission it needs to resupply things like food, energy, tools, or just give some rest to its crew.
+Let's think that a starship needs to complete a mission in the universe.
 
-So, keeping it in mind, this is a simple application that calculates how many resupply stops are required for each starship to cover a given distance in mega lights (MGLT).
+The commander needs to plain the trip, covering the total distance for a successfull mission, resuppling things like food, energy, tools, or just to give some rest to his crew.
+
+So, keeping it in mind, this is a simple application that calculates how many resupply stops are required for each kind of Star Wars starship needs to cover a given distance in mega lights (MGLT).
 
 <sup>
-    * The real reason for this project is to aggregate knowledge about new technologies.
+    * The reason for this project is to aggregate knowledge about new technologies.
 </sup>
 
 ## Nice to have
 
-* [.NET Core 3.1] - SDK/RunTime Microsoft .NET Core 3.1 <https://dotnet.microsoft.com/download/dotnet-core/3.1>
+* [.NET Core 6] - SDK/RunTime Microsoft .NET 6 <https://dotnet.microsoft.com/en-us/download/dotnet/6.0>
 
 * (Optional) [Visual Studio] - Microsoft Visual Studio or another tool.
 
 * (Optional) Docker (Docker for Windows or Mac) - If you prefer just to run the project with Docker locally :smile:
 <https://www.docker.com/get-started>
 
-There are two applications that work independently
+## Solution Compose
+
+There are two kind of applications that work independently
 1. Console Application (Console/Prompt)
 2. Web Application (Api + Front)
 
