@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
